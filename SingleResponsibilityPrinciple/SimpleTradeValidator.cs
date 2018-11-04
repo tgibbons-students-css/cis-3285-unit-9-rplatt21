@@ -40,6 +40,12 @@ namespace SingleResponsibilityPrinciple
                 return false;
             }
 
+            if (tradeAmount < 1000 || tradeAmount > 100000)
+            {
+                logger.LogWarning("WARN", " Trade price on line {0} not a valid decimal: '{1}'", tradeData[2]);
+                return false;
+            }
+
             return true;
         }
     }
