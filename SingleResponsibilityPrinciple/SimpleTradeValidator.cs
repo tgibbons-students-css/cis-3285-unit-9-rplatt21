@@ -45,6 +45,7 @@ namespace SingleResponsibilityPrinciple
                 logger.LogWarning("WARN", " Trade price on line {0} not a valid decimal: '{1}'", tradeData[2]);
                 return false;
             }
+            
 
             return true;
         }
