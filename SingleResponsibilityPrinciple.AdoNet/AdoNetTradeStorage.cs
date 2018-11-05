@@ -17,7 +17,9 @@ namespace SingleResponsibilityPrinciple.AdoNet
         public void Persist(IEnumerable<TradeRecord> trades)
         {
             logger.LogInfo("Connecting to Database");
-            using (var connection = new System.Data.SqlClient.SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\tradedatabase.mdf;Integrated Security=True;Connect Timeout=30;"))
+            // using (var connection = new System.Data.SqlClient.SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\tradedatabase.mdf;Integrated Security=True;Connect Timeout=30;"))
+            string connectSqlServer = "Data Source = athena.css.edu; Initial Catalog = CIS3285; Persist Security Info = True; User ID = tgibbons; Password = Data Source = athena.css.edu; Initial Catalog = CIS3285; Persist Security Info = True; User ID = tgibbons; Password = Saints4CSS";
+            using (var connection = new System.Data.SqlClient.SqlConnection(connectSqlServer))
             {
                 connection.Open();
                 using (var transaction = connection.BeginTransaction())
